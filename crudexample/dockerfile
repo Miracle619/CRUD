@@ -1,0 +1,8 @@
+FROM python:3.9.0
+COPY requirements.txt requirements.txt
+RUN mkdir /crudexample
+COPY ./crudexample /crudexample
+WORKDIR /crudexample
+EXPOSE 8000
+ENTRYPOINT [ "python","crudexample/manage.py" ]
+CMD ["runserver","0.0.0.0:8000"]
